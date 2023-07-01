@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="wallpaper_name">Overlay Skin</string>
+	<string name="wallpaper_settings">Overlay Skin Settings</string>
+	<string name="description">Clock and schedule wallpaper.</string>
+</resources>

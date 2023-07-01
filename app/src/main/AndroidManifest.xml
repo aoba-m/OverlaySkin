@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/wallpaper_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Wallpaper"
+        tools:targetApi="31">
+        <service
+            android:name="com.moegoto.wallpaper.OverlaySkinService"
+            android:exported="true"
+            android:label="@string/wallpaper_name"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/wallpaper" />
+        </service>
+
+        <activity
+            android:name="com.moegoto.wallpaper.config.activity.MainConfigActivity"
+            android:exported="true"
+            android:label="@string/wallpaper_settings"
+            android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:theme="@android:style/Theme.DeviceDefault.Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.moegoto.wallpaper.config.activity.SaveRestoreConfigActivity"
+            android:exported="false"
+            android:label="@string/wallpaper_settings"
+            android:theme="@android:style/Theme.DeviceDefault.Settings" />
+        <activity
+            android:name="com.moegoto.wallpaper.config.activity.BackgroundConfigActivity"
+            android:exported="false"
+            android:label="@string/wallpaper_settings"
+            android:theme="@android:style/Theme.DeviceDefault.Settings" />
+        <activity
+            android:name="com.moegoto.wallpaper.config.activity.ContentsConfigActivity"
+            android:exported="false"
+            android:label="@string/wallpaper_settings"
+            android:theme="@android:style/Theme.DeviceDefault.Settings" />
+        <activity
+            android:name="com.moegoto.wallpaper.config.activity.DisplayConfigActivity"
+            android:exported="false"
+            android:label="@string/wallpaper_settings"
+            android:theme="@android:style/Theme.DeviceDefault.Settings" />
+        <activity
+            android:name="com.moegoto.wallpaper.config.activity.HomeScreenConfigActivity"
+            android:exported="false"
+            android:label="@string/wallpaper_settings"
+            android:theme="@android:style/Theme.DeviceDefault.Settings" />
+    </application>
+
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission"></uses-permission>
+    <uses-permission android:name="android.permission.READ_CALENDAR"></uses-permission>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"></uses-permission>
+
+    <uses-feature
+        android:name="android.software.live_wallpaper"
+        android:required="true" />
+
+</manifest>
